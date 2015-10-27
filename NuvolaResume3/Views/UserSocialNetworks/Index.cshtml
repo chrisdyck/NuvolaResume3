@@ -1,0 +1,65 @@
+@model IEnumerable<NuvolaResume3.Models.Data.UserSocialNetwork>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(x=>x.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(x=>x.UserProfile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(x=>x.SocialNetworkAccount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(x=>x.DisplayAs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(x=>x.URL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(x=>x.SocialNetwork)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+        <td>
+			@item.UserID
+        </td>
+        <td>
+			@(item.UserProfile == null ? "None" : item.UserProfile.FullName)
+        </td>
+        <td>
+			@item.SocialNetworkAccount
+        </td>
+        <td>
+			@item.DisplayAs
+        </td>
+        <td>
+			@item.URL
+        </td>
+        <td>
+			@(item.SocialNetwork == null ? "None" : item.SocialNetwork.Name)
+        </td>
+    </tr>
+}
+
+</table>
+
+

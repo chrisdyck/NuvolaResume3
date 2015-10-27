@@ -1,0 +1,32 @@
+@model NuvolaResume3.Models.Data.Category
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Category</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">DateCreated</div>
+    <div class="display-field">@String.Format("{0:g}", Model.DateCreated)</div>
+
+    <div class="display-label">DateEdited</div>
+    <div class="display-field">@String.Format("{0:g}", Model.DateEdited)</div>
+
+    <div class="display-label">CategoryItems</div>
+    <div class="display-field">@(Model.CategoryItems == null ? "None" : Model.CategoryItems.Count.ToString())</div>
+
+    <div class="display-label">SkillsCategories</div>
+    <div class="display-field">@(Model.SkillsCategories == null ? "None" : Model.SkillsCategories.Count.ToString())</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

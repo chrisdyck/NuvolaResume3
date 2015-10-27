@@ -1,0 +1,274 @@
+﻿@model NuvolaResume3.Models.Data.Resume
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Resume</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+        @Html.HiddenFor(model => model.UserID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description)
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SummaryObjectives, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SummaryObjectives)
+                @Html.ValidationMessageFor(model => model.SummaryObjectives)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TagLine, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TagLine)
+                @Html.ValidationMessageFor(model => model.TagLine)
+            </div>
+        </div>
+
+@*        <div class="form-group">
+            @Html.LabelFor(model => model.Achievements, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @if (Model.Achievements != null)
+                {
+                    <ul style="list-style-type: none;">
+                        @foreach (NuvolaResume3.Models.Data.Achievement item in Model.Achievements)
+                        {
+                            <li>
+                                @{var selected = Model.ResumeAchievementsIds == null ? "" :
+                                    Model.ResumeAchievementsIds.Contains(item.ID.ToString()) ? "checked" : "";
+                                }
+                                <input type="checkbox" name="ResumeAchievementsIds" value="@item.ID" 
+                                    @Html.Raw(selected) />&nbsp;@item.Name</li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>*@
+        
+        @Html.Partial("~/Views/ResumeAchievements/_ResumeAchievements.cshtml", new
+                NuvolaResume3.Models.Data.ViewModels.ViewModel
+                {
+                    ControlId = "ResumeAchievementsIds",
+                    Items = Model.Achievements,
+                    Label = "Achievements",
+                    SelectedItemsIds = Model.ResumeAchievementsIds
+                })
+
+@*        <div class="form-group">
+            @Html.LabelFor(model => model.VolunteerExperiences, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @if (Model.VolunteerExperiences != null)
+                {
+                    <ul style="list-style-type: none;">
+                        @foreach (NuvolaResume3.Models.Data.VolunteerExperience item in Model.VolunteerExperiences)
+                        {
+                            <li>
+                                @{var selected = Model.ResumeVolunteerExperiencesIds == null ? "" :
+                                    Model.ResumeVolunteerExperiencesIds.Contains(item.ID.ToString()) ? "checked" : "";
+                                }
+                                <input type="checkbox" name="ResumeVolunteerExperiencesIds" value="@item.ID" 
+                                    @Html.Raw(selected) />&nbsp;@item.Name</li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>*@
+        
+        @Html.Partial("~/Views/ResumeVolunteerExperiences/_ResumeVolunteerExperiences.cshtml", new
+                NuvolaResume3.Models.Data.ViewModels.ViewModel
+                {
+                    ControlId = "ResumeVolunteerExperiencesIds",
+                    Items = Model.VolunteerExperiences,
+                    Label = "Volunteer Experience",
+                    SelectedItemsIds = Model.ResumeVolunteerExperiencesIds
+                })
+
+@*        <div class="form-group">
+            @Html.LabelFor(model => model.UserSocialNetworks, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @if (Model.UserSocialNetworks != null)
+                {
+                    <ul style="list-style-type: none;">
+                        @foreach (NuvolaResume3.Models.Data.UserSocialNetwork item in Model.UserSocialNetworks)
+                        {
+                            <li>
+                                @{var selected = Model.ResumeSocialNetworksIds == null ? "" :
+                                    Model.ResumeSocialNetworksIds.Contains(item.ID.ToString()) ? "checked" : "";
+                                }
+                                <input type="checkbox" name="ResumeSocialNetworksIds" value="@item.ID" 
+                                    @Html.Raw(selected) />&nbsp;@item.SocialNetwork.Name</li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>*@
+        
+        @Html.Partial("~/Views/ResumeSocialNetworks/_ResumeSocialNetworks.cshtml", new
+                NuvolaResume3.Models.Data.ViewModels.ViewModel
+                {
+                    ControlId = "ResumeSocialNetworksIds",
+                    Items = Model.UserSocialNetworks,
+                    Label = "Social Networks",
+                    SelectedItemsIds = Model.ResumeSocialNetworksIds
+                })
+
+@*        <div class="form-group">
+            @Html.LabelFor(model => model.Educations, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @if (Model.Educations != null)
+                {
+                    <ul style="list-style-type: none;">
+                        @foreach (NuvolaResume3.Models.Data.Education item in Model.Educations)
+                        {
+                            <li>
+                                @{var selected = Model.ResumeEducationsIds == null ? "" :
+                                    Model.ResumeEducationsIds.Contains(item.ID.ToString()) ? "checked" : "";
+                                }
+                                <input type="checkbox" name="ResumeEducationsIds" value="@item.ID" 
+                                    @Html.Raw(selected) />&nbsp;@item.InstitutionName</li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>*@
+
+        @Html.Partial("~/Views/ResumeEducations/_ResumeEducations.cshtml", new
+                NuvolaResume3.Models.Data.ViewModels.ViewModel
+                {
+                    ControlId = "ResumeEducationsIds",
+                    Items = Model.Educations,
+                    Label = "Education",
+                    SelectedItemsIds = Model.ResumeEducationsIds
+                })
+
+@*        <div class="form-group">
+            @Html.LabelFor(model => model.Industries, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @if (Model.Industries != null)
+                {
+                    <ul style="list-style-type: none;">
+                        @foreach (NuvolaResume3.Models.Data.Industry item in Model.Industries)
+                        {
+                            <li>
+                                @{var selected = Model.ResumeIndustriesIds == null ? "" :
+                                    Model.ResumeIndustriesIds.Contains(item.ID.ToString()) ? "checked" : "";
+                                }
+                                <input type="checkbox" name="ResumeIndustriesIds" value="@item.ID" 
+                                    @Html.Raw(selected) />&nbsp;@item.Name</li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>*@
+
+        @Html.Partial("~/Views/ResumeIndustries/_ResumeIndustries.cshtml", new
+                NuvolaResume3.Models.Data.ViewModels.ViewModel
+                {
+                    ControlId = "ResumeIndustriesIds",
+                    Items = Model.Industries,
+                    Label = "Industries",
+                    SelectedItemsIds = Model.ResumeIndustriesIds
+                })
+
+        @Html.Partial("~/Views/ResumeCategories/_ResumeCategories.cshtml", new
+                NuvolaResume3.Models.Data.ViewModels.ResumeCategoriesViewModel
+                {
+                    ControlId = "ResumeCategoriesIds",
+                    Items = Model.Categories,
+                    Label = "Categories",
+                    SelectedItemsIds = Model.ResumeCategoriesIds
+                })
+
+@*        <div class="form-group">
+            @Html.LabelFor(model => model.Categories, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @if (Model.Categories != null)
+                {
+                    <ul style="list-style-type: none;">
+                        <li>
+                            @foreach (NuvolaResume3.Models.Data.Category item in Model.Categories
+                                .Where(x => x.CategoryItems.Count > 0)
+                                .OrderBy(x => x.Name))
+                            {
+                                @Html.Label(item.Name)
+                                <ul style="list-style-type: none;">
+                                    @foreach (NuvolaResume3.Models.Data.CategoryItem citem in item.CategoryItems.OrderBy(x => x.Name))
+                                    {
+                                        <li>
+                                            @{var selected = Model.ResumeCategoriesIds == null ? "" :
+                                    Model.ResumeCategoriesIds.Contains(citem.ID.ToString()) ? "checked" : "";
+                                            }
+                                            <input type="checkbox" name="ResumeCategoriesIds" value="@citem.ID" 
+                                    @Html.Raw(selected) />&nbsp;@citem.Name</li>
+                                    }
+                                </ul>
+                            }
+
+                        </li>
+                    </ul>
+                }
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsPublic, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <p>@Html.EditorFor(model => model.IsPublic) @Html.DisplayNameFor(model => model.IsPublic)</p>
+                @Html.ValidationMessageFor(model => model.IsPublic)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsProfile, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <p>@Html.EditorFor(model => model.IsProfile) @Html.DisplayNameFor(model => model.IsProfile)</p>
+
+                @Html.ValidationMessageFor(model => model.IsProfile)
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.CreatedBy)
+        @Html.HiddenFor(model => model.DateCreated)
+        @Html.HiddenFor(model => model.DateEdited)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

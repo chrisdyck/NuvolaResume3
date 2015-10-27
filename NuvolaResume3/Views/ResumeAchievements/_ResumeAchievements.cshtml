@@ -1,0 +1,23 @@
+﻿@model NuvolaResume3.Models.Data.ViewModels.ViewModel
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Items, new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+
+        @if (Model.Items != null)
+        {
+            <ul style="list-style-type: none;">
+                @foreach (NuvolaResume3.Models.Data.Achievement item in 
+                    (IEnumerable<NuvolaResume3.Models.Data.Achievement>)Model.Items)
+                {
+                    <li>
+                        @{var selected = Model.SelectedItemsIds == null ? "" :
+                                    Model.SelectedItemsIds.Contains(item.ID.ToString()) ? "checked" : "";
+                        }
+                        <input type="checkbox" name="@Model.ControlId" value="@item.ID" 
+                                    @Html.Raw(selected) />&nbsp;@item.Name</li>
+                }
+            </ul>
+        }
+    </div>
+</div>

@@ -1,0 +1,311 @@
+﻿.resume-display-field
+{
+    /*position: relative;
+    float: left;*/
+    padding-top: 10px;
+    width: 100%;
+    clear: both;
+}
+
+.resume-display-label
+{
+    font-weight: bold;
+    text-align: right;
+    padding-top: 10px;
+    width: 100%;
+    clear: both;
+}
+
+
+ul.resume, div.resume, .resumeheader_name,
+.resumeheader_contactinfo, .resumeheader_socialnetworks, .resumeheader_tagline, h2.resume, h3.resume, h4.resume, h5.resume
+{
+    font-family: "Open Sans",Arial,Helvetica,sans-serif;
+    /*font-size: 11pt;*/
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+ul.resume
+{
+    margin-left: 1%;
+    margin-right: 1%;
+    /*background-color: yellow !important;*/
+}
+
+div.resume
+{
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    /*background-color: yellow;*/
+    clear: both;
+}
+
+    div.resume .wide
+    {
+        width: 90%;
+    }
+
+/*section.resumecolumn
+{
+    float: left;
+    width: 50px;
+    margin: 0px 5px 5px 5px;
+    padding: 5px 15px;
+    color: red;
+}*/
+
+div.resumecolumn-2
+{
+    float: left;
+    width: 49%;
+}
+
+div.resumecolumn-3
+{
+    float: left;
+    width: 33%;
+}
+
+div.resume_headerrow
+{
+    width: 100%;
+    text-align: center;
+}
+
+div.resume_headregionwrap
+{
+    height: 150px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+p .resumeheader_tagline
+{
+    font-size: 12pt;
+    font-style: italic;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    text-align: center;
+}
+
+h3.resume, h4.resume, h5.resume
+{
+    font-weight: bold;
+    text-align: left;
+    font-size: 12pt;
+}
+
+h2.resume
+{
+    margin-top: 8px;
+    margin-bottom: 0px;
+}
+
+h3.resume
+{
+    font-size: 11.5pt;
+    padding-top: 8px;
+    padding-bottom: 0px;
+}
+
+h4.resume
+{
+    font-size: 10pt;
+    padding-top: 6px;
+    padding-bottom: 0px;
+    margin: 0px;
+}
+
+h5.resume
+{
+    font-style: italic;
+    font-weight: normal;
+    padding-top: 14px;
+    padding-bottom: 0px;
+}
+
+.resumeheader_name, .resumeheader_contactinfo, .resumeheader_socialnetworks
+{
+    text-align: center;
+}
+
+.resumeheader_name
+{
+    font-size: 18pt;
+    margin-bottom: 10px;
+}
+
+.resumeheader_contactinfo
+{
+    font-size: 12pt;
+}
+
+.resumeheader_socialnetworks
+{
+    font-size: 12pt;
+}
+
+span.jobdates
+{
+    /*color: red;*/
+}
+
+div.resumecheckbox
+{
+    display: block;
+    position: relative;
+    float: left;
+    padding: 3px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    vertical-align: top;
+}
+
+    div.resumecheckbox input[type="checkbox"]
+    {
+        margin-top: -5px;
+        margin-bottom: -5px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+/* Resume columized list */
+.list-3-columns, .list-4-columns, .list-5-columns
+{
+    width: 100%;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 3px;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+    .list-3-columns li, .list-3-columns div
+    {
+        float: left;
+        width: 33%;
+        display: inline-block;
+        min-width: 133px;
+        padding-right: 10px;
+    }
+
+    .list-4-columns li, .list-4-columns div
+    {
+        float: left;
+        width: 25%;
+        min-width: 100px;
+        display: block;
+        padding-right: 10px;
+    }
+
+    .list-5-columns li
+    {
+        float: left;
+        width: 20%;
+        display: block;
+    }
+
+#resumerightcolumn, #resumeleftcolumn
+{
+    /*background-color: blue;*/
+}
+
+#resumecontainer
+{
+    margin: 0;
+    padding: 0;
+    /*background-color: lightcoral;*/
+    width: 100%;
+}
+
+#resumerow
+{
+    /*background-color: pink;*/
+}
+
+#resumemaincolumn
+{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+
+.resume-display-label h3
+{
+    background-color: rgba(0,0,0,0.80);
+    color: white;
+    text-align: left;
+    padding-left: 2%;
+    padding-right: 2%;
+    /*margin-left: -2%;
+        margin-right: -2%;*/
+}
+
+.resume-display-field h4
+{
+    padding-top: 4px;
+    /*background-color: rgba(0,0,0,0.95);*/
+    text-align: left;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.resume-display-field h5
+{
+    padding-top: 4px;
+    color: #808080;
+    font-size: 10pt;
+    text-align: left;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 0px;
+    font-style: normal;
+}
+
+.control-group
+{
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+@media (max-width: 480px)
+{
+    .resume-display-field
+    {
+        padding-left: 2%;
+        padding-right: 3%;
+    }
+
+        .resume-display-field ul
+        {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .resume-display-field li
+        {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+    #resumemaincolumn
+    {
+        padding: 0;
+        /*padding-left: 1%; padding-right: 1%;*/
+    }
+
+    #resumerightcolumn, #resumeleftcolumn
+    {
+        display: none;
+    }
+}

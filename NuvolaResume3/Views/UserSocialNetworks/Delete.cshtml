@@ -1,0 +1,41 @@
+@model NuvolaResume3.Models.Data.UserSocialNetwork
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>UserSocialNetwork</legend>
+
+    <div class="display-label">UserID</div>
+    <div class="display-field">@Model.UserID</div>
+
+    <div class="display-label">SocialNetworkAccount</div>
+    <div class="display-field">@Model.SocialNetworkAccount</div>
+
+    <div class="display-label">DisplayAs</div>
+    <div class="display-field">@Model.DisplayAs</div>
+
+    <div class="display-label">DateEdited</div>
+    <div class="display-field">@String.Format("{0:g}", Model.DateEdited)</div>
+
+    <div class="display-label">DateCreated</div>
+    <div class="display-field">@String.Format("{0:g}", Model.DateCreated)</div>
+
+    <div class="display-label">SocialNetwork</div>
+    <div class="display-field">@(Model.SocialNetwork == null ? "None" : Model.SocialNetwork.Name)</div>
+
+    <div class="display-label">UserProfile</div>
+    <div class="display-field">@(Model.UserProfile == null ? "None" : Model.UserProfile.LastName)</div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
+
